@@ -18,7 +18,7 @@ public class graphGenerator {
         int edges = in.nextInt();
 
         // The base cases: graph is not possible in these cases
-        if (vertices <= 1 || edges < 1 || edges < vertices - 1) {
+        if (vertices <= 1 || edges < 1 || edges < vertices - 1 || !graphPossible(vertices, edges)) {
             System.out.println("Graph cannot be generated");
         } else {
             int[][] graph = generate(vertices, edges);
@@ -99,5 +99,23 @@ public class graphGenerator {
         return conExist;
     }
 
+    /**
+     * This method checks if the graph can be generated because if the input number of edges is bigger than the maximum number of edges it returns false.
+     * 
+     * @param vert number of vertices
+     * @param edges number of edges
+     * @return true if the graph is possible, false if not possible. 
+     */
+    public static boolean graphPossible(int vert, int edges){
+        int maxCon = 0;
+        for(int n = 1; n<vert; n++){
+            maxCon += n;
+        }
+        if(edges>maxCon){
+            return false;
+        } else {
+            return true;
+        }
+    }
 }
 
