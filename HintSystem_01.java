@@ -1,6 +1,8 @@
 public class HintSystem_01{
-	
+/*Provides hints for the player as they go thorough the game. There are two options:
+a small hint and a big hint. */ 
 	public static void main (String[] args){
+	//Testing structure. 
 	int choice;
 	int color;
 	int hintArray[]=new int array[2];//use for result of bigHint
@@ -17,10 +19,11 @@ public class HintSystem_01{
 		
 
 public int smallHint(int[] palette, int[] counterOfColors, int[]history, int adjacentcolor){
-//history is an arraylist of vertices the user has chosen
-//palette is the number of colors available for the user
-//counterOfColors records which color is assigned to each vertex
-//choice indicates which hit button has been clicked
+/*Provides a slight hint to nudge the player along. 
+history is an arraylist of vertices the user has chosen
+palette is the number of colors available for the user
+counterOfColors records which color is assigned to each vertex
+choice indicates which hit button has been clicked*/
 	int color;
 			for(int i=0; i<palette.length; i++)
 			{
@@ -35,14 +38,16 @@ public int smallHint(int[] palette, int[] counterOfColors, int[]history, int adj
 	
 	public void check(int vertex, coledge[] e)
 	{
+	/*Checks to make sure that the color offered as a hint is not the same color as 
+	already colored vertices.*/
 		for(int i=0;i<e.length;i++){
     		//creation of a new MD array to store the subset
     		ColEdge[] sub = new ColEdge[e.length];
     		//reading through rows
     		int amount=0;
     		for (int z= 0; z < e.length; z++) {
-    			if (vertex==example[z].u  || vertex==example[z].v) {
-                        sub[amount] = example[z];
+    			if (vertex==e[z].u  || vertex==e[z].v) {
+                        sub[amount] = e[z];
                         amount++;
                }else{
                	   amount=amount;
@@ -57,6 +62,8 @@ public int smallHint(int[] palette, int[] counterOfColors, int[]history, int adj
 		
 	
 	public int[] bigHint()
+	/*Provides the player with more information than the small hint to help them 
+	complete the graph. */
 	{
 		int[] colorVertex=new int array[2];
 		int position=0;
